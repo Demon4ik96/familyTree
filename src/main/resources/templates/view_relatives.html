@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>View Relatives</title>
+</head>
+<body>
+<div>
+    <h1>Relatives for [[${member.name}]]</h1>
+    <hr>
+    <table>
+        <thead>
+        <tr>
+            <th>Mother</th>
+            <th>Father</th>
+        </tr>
+        </thead>
+        <tbody>
+        <td th:text="${motherName}"></td>
+        <td th:text="${fatherName}"></td>
+        </tbody>
+    </table>
+    <table>
+        <thead>
+        <tr>
+            <th>Sons</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="sonName : ${sonNames}">
+            <td th:text="${sonName}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <table>
+        <thead>
+        <tr>
+            <th>Daughters</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="daughterName : ${daughterNames}">
+            <td th:text="${daughterName}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+
+</div>
+
+</body>
+</html>

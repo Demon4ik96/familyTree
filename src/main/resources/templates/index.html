@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Family Tree</title>
+</head>
+<body>
+<div align="center">
+    <h1>Family Members List</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>BirthDate</th>
+            <th>Gender</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="member : ${listMembers}">
+            <td th:text="${member.name}"></td>
+            <td th:text="${member.birthdate}"></td>
+            <td th:text="${member.gender}"></td>
+            <td><a th:href="@{/showFormForUpdate/{id}(id=${member.id})}">Update</a></td>
+            <td><a th:href="@{/showFormForAddRelatives/{id}(id=${member.id})}">Add Relatives</a></td>
+            <td><a th:href="@{/showFormForViewRelatives/{id}(id=${member.id})}">View Relatives</a></td>
+            <td><a th:href="@{/delete/{id}(id=${member.id})}">Delete Member</a></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <form th:action="@{/filterMembers}" method="GET">
+        <input type="text" th:name="startAge" placeholder="FROM">
+        <input type="text" th:name="finishAge" placeholder="TO">
+        <button type="submit">FILTER AGE</button>
+    </form>
+    <a th:href="@{/showNewMemberFrom}">Add Family Member</a>
+
+
+</div>
+</body>
+</html>

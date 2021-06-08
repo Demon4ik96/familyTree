@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Relatives Page</title>
+</head>
+<body>
+<div>
+    <h1>Add Relatives to Member</h1>
+    <hr>
+    <tbody>
+    <td th:text="${member.name}"></td>
+    <td th:text="${member.birthdate}"></td>
+    <td th:text="${member.gender}"></td>
+    </tbody>
+    <form action="#" th:action="@{/saveRelatives}" method="POST">
+        <input type="hidden" th:value="${member.id}" name="memberId"/>
+        <select th:name="parentId">
+            <option value=0>Select Parent</option>
+            <option th:each="member: ${listMembers}"
+                    th:value="${member.id}" th:text="${member.name}"></option>
+        </select>
+        <select th:name="childId">
+            <option value=0>Select Child</option>
+            <option th:each="member: ${listMembers}"
+                    th:value="${member.id}" th:text="${member.name}"></option>
+        </select>
+        <button type="submit">Add</button>
+    </form>
+
+</div>
+
+</body>
+</html>
