@@ -16,3 +16,6 @@ TO LAUNCH A PROJECT
 6. Run the application and enter localhost:8080 in browser (check that port:8080 is not busy by other app)
 
 Now you can add your first family member:)
+
+7. If you want to update, add relatives or delete any member
+you should sign in (login "admin", password "admin")
